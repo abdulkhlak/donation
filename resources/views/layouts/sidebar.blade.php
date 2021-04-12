@@ -23,9 +23,12 @@
         </form>
         <ul class="sidebar-menu" data-widget="tree">
 
-            <li class="header">BLOOD MANAGMENT</li>
+            <li class="header">{{__('BLOOD MANAGMENT')}}</li>
             <br/>
 
+
+            <!--  DISTRICT MENU
+              ===================-->
 
             <li class="treeview {{ (Route::currentRouteName() == 'district_view')||(Route::currentRouteName() == 'district_add')? 'active': '' }} ">
                 <a href="#">
@@ -42,8 +45,12 @@
                             {{__('Add new')}}</a></li>
                 </ul>
             </li>
+
+
+            <!--  NEAREST MENU
+           ===================-->
             
-            <li class="treeview {{ (Route::currentRouteName() == 'nearest_view')||(Route::currentRouteName() == 'nearest_view')? 'active': '' }} ">
+            <li class="treeview {{ (Route::currentRouteName() == 'nearest_view')||(Route::currentRouteName() ==  'nearest_add')? 'active': '' }} ">
                 <a href="#">
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     <span>{{__('Manage Nearest')}}</span>
@@ -58,6 +65,10 @@
                             {{__('Add new')}}</a></li>
                 </ul>
             </li>
+
+
+            <!--  BLOOD MENU
+           ===================-->
           
             <li class="treeview {{ (Route::currentRouteName() == 'blood_group_view')||(Route::currentRouteName() == 'blood_group_add')? 'active': '' }} ">
                 <a href="#">
@@ -74,7 +85,51 @@
                             {{__('Add new')}}</a></li>
                 </ul>
             </li>
-            <li class="header">BLOOD MANAGMENT</li>
+            <li class="header">{{__('HEALTH QUESTIONNAIRE')}}</li>
+
+            <!--  DISEASES MENU
+           ===================-->
+
+            <li class="treeview {{ (Route::currentRouteName() == 'diseases_view')||(Route::currentRouteName() ==  'diseases_add')? 'active': '' }} ">
+                <a href="#">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span>{{__('Diseases')}}</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ (Route::currentRouteName() == 'diseases_view')? 'active': '' }}"><a href="{{route("diseases_view")}}">
+                            {{__('Diseases Name')}}</a></li>
+                    <li class="{{ (Route::currentRouteName() == 'diseases_add')? 'active': '' }}"><a href="{{route("diseases_add")}}">
+                            {{__('Add new')}}</a></li>
+                </ul>
+            </li>
+
+            <!--  SURGERY MENU
+           ===================-->
+
+            <li class="treeview {{ (Route::currentRouteName() == 'surgery_view')||(Route::currentRouteName() ==  'surgery_add')? 'active': '' }} ">
+                <a href="#">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span>{{__('Surgery / Transfusion')}}</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ (Route::currentRouteName() == 'surgery_view')? 'active': '' }}"><a href="{{route("surgery_view")}}">
+                            {{__('Surgery/Transfusion Name')}}</a></li>
+                    <li class="{{ (Route::currentRouteName() == 'surgery_add')? 'active': '' }}"><a href="{{route("surgery_add")}}">
+                            {{__('Add new')}}</a></li>
+                </ul>
+            </li>
+
+            <li class="header">{{__('HEADING LINE')}}</li>
+
+
+            <!--  SLIDER MENU
+           ===================-->
   
             <li class="treeview {{ (Route::currentRouteName() == 'sliders_view')||(Route::currentRouteName() == 'slider_add')? 'active': '' }} ">
                 <a href="#">
@@ -92,10 +147,14 @@
                 </ul>
             </li>
 
+
+            <!--  GALLERY MENU
+             ===================-->
+
             <li class="treeview {{ (Route::currentRouteName() == 'gallery_view')||(Route::currentRouteName() == 'gallery_add')? 'active': '' }} ">
                 <a href="#">
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                    <span>{{__('Slider')}}</span>
+                    <span>{{__('Gallery')}}</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

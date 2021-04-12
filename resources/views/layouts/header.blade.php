@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="{{route("home")}}" class="logo">
+    <a href="{{route("index")}}" target="_blank" class="logo">
 
         <span class="logo-mini"><b>G</b>8</span>
 

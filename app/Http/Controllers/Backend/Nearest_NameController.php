@@ -37,10 +37,6 @@ class Nearest_NameController extends Controller
 
 			]);
 
-			$nearest->save();
-
-
-
 		} catch (Exception $exception) {
 			$nearest = false;
 		}

@@ -5,13 +5,13 @@
 /* Author: xenioushk*/
 /*-------------------------------------------------------------------*/
 
-jQuery(function ($) {
+jQuery(function (jQuery) {
 
     "use strict";
-    
+
     // 00. RTL status check.
     var rtl_status = false;
-    if ($('html').is('[dir]')) {
+    if (jQuery('html').is('[dir]')) {
         rtl_status = true;
     }
 
@@ -23,15 +23,15 @@ jQuery(function ($) {
         }
         this.css({
             "position": "absolute",
-            "top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
-            "left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
+            "top": (((jQuery(parent).height() - this.outerHeight()) / 2) + jQuery(parent).scrollTop() + "px"),
+            "left": (((jQuery(parent).width() - this.outerWidth()) / 2) + jQuery(parent).scrollLeft() + "px")
         });
         return this;
     }
 
     // 00. RTL status check.
     var rtl_status = false;
-    if ($('html').is('[dir]')) {
+    if (jQuery('html').is('[dir]')) {
         rtl_status = true;
     }
 
@@ -56,26 +56,26 @@ jQuery(function ($) {
 
     }
 
-    // ONE PAGE SMOOTH SCROLLING 
+    // ONE PAGE SMOOTH SCROLLING
 
     function smooth_scrolling() {
 
-        $(".nav_menu").on("click", function () {
+        jQuery(".nav_menu").on("click", function () {
 
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                var offset = $('.header-wrapper').outerHeight();
+                var target = jQuery(this.hash);
+                target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+                var offset = jQuery('.header-wrapper').outerHeight();
 
-                if ($('.stuck').length === 1) {
-                    offset = $('.stuck').outerHeight();
+                if (jQuery('.stuck').length === 1) {
+                    offset = jQuery('.stuck').outerHeight();
                 } else {
                     offset = parseInt(offset, 0) + 24;
                 }
 
                 if (target.length) {
-                    $('html,body').animate({
+                    jQuery('html,body').animate({
                         scrollTop: target.offset().top - parseInt(offset, 0)
                     }, 1300);
 
@@ -91,11 +91,11 @@ jQuery(function ($) {
 
     // CUSTOM BACKGROUND.
 
-    if ($(".section-custom-bg").length) {
+    if (jQuery(".section-custom-bg").length) {
 
-        $(".section-custom-bg").each(function () {
+        jQuery(".section-custom-bg").each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var bg_img = "images/home_1_slider_1.jpg",
                     bg_color = "#000000",
@@ -111,81 +111,81 @@ jQuery(function ($) {
 
             // Background Image.
 
-            if ($this.is('[data-bg_img]')) {
-                bg_img = ', url("' + $this.data('bg_img') + '")';
+            if (jQuerythis.is('[data-bg_img]')) {
+                bg_img = ', url("' + jQuerythis.data('bg_img') + '")';
             } else {
                 bg_img = ', url("' + bg_img + '")';
             }
 
             // Background Color.
 
-            if ($this.is('[data-bg_color]')) {
-                bg_color = $this.data('bg_color');
+            if (jQuerythis.is('[data-bg_color]')) {
+                bg_color = jQuerythis.data('bg_color');
             }
 
-            if ($this.is('[data-bg_opacity]')) {
-                bg_opacity = $this.data('bg_opacity');
+            if (jQuerythis.is('[data-bg_opacity]')) {
+                bg_opacity = jQuerythis.data('bg_opacity');
             }
 
-            var $color_overlay = hexToRgbA(bg_color, bg_opacity);
+            var jQuerycolor_overlay = hexToRgbA(bg_color, bg_opacity);
 
-            $color_overlay_2 = $color_overlay;
+            jQuerycolor_overlay_2 = jQuerycolor_overlay;
 
-            if ($this.is('[data-gardient]') && $this.data('gardient') == true) {
+            if (jQuerythis.is('[data-gardient]') && jQuerythis.data('gardient') == true) {
 
-                if ($this.is('[data-bg_color_2]')) {
-                    bg_color_2 = $this.data('bg_color_2');
+                if (jQuerythis.is('[data-bg_color_2]')) {
+                    bg_color_2 = jQuerythis.data('bg_color_2');
                 }
 
-                if ($this.is('[data-bg_opacity_2]')) {
-                    bg_opacity_2 = $this.data('bg_opacity_2');
+                if (jQuerythis.is('[data-bg_opacity_2]')) {
+                    bg_opacity_2 = jQuerythis.data('bg_opacity_2');
                 }
 
-                var $color_overlay_2 = hexToRgbA(bg_color_2, bg_opacity_2);
+                var jQuerycolor_overlay_2 = hexToRgbA(bg_color_2, bg_opacity_2);
 
             }
 
             // Background Position.
 
-            var $bg_position = "";
+            var jQuerybg_position = "";
 
-            if ($this.is('[data-bg_position]')) {
-                $bg_position += 'background-position: ' + $this.data('bg_position') + ';';
+            if (jQuerythis.is('[data-bg_position]')) {
+                jQuerybg_position += 'background-position: ' + jQuerythis.data('bg_position') + ';';
             } else {
-                $bg_position += 'background-position: ' + bg_position + '; ';
+                jQuerybg_position += 'background-position: ' + bg_position + '; ';
             }
 
             // Background Repeat.
 
-            var $bg_repeat = "";
+            var jQuerybg_repeat = "";
 
-            if ($this.is('[data-bg_repeat]')) {
-                $bg_repeat += 'background-repeat: ' + $this.data('bg_repeat') + ';';
+            if (jQuerythis.is('[data-bg_repeat]')) {
+                jQuerybg_repeat += 'background-repeat: ' + jQuerythis.data('bg_repeat') + ';';
             } else {
-                $bg_repeat += 'background-repeat: ' + bg_repeat + '; ';
+                jQuerybg_repeat += 'background-repeat: ' + bg_repeat + '; ';
             }
 
             // Background Size.
 
-            var $bg_size = "";
+            var jQuerybg_size = "";
 
-            if ($this.is('[data-bg_size]')) {
-                $bg_size += 'background-size: ' + $this.data('bg_size') + ';';
+            if (jQuerythis.is('[data-bg_size]')) {
+                jQuerybg_size += 'background-size: ' + jQuerythis.data('bg_size') + ';';
             } else {
-                $bg_size += 'background-size: ' + bg_size + '; ';
+                jQuerybg_size += 'background-size: ' + bg_size + '; ';
             }
 
             // Background Overflow.
 
-            var $bg_overflow = "";
+            var jQuerybg_overflow = "";
 
-            if ($this.is('[data-bg_overflow]')) {
-                $bg_overflow += 'overflow: ' + $this.data('bg_overflow') + ';';
+            if (jQuerythis.is('[data-bg_overflow]')) {
+                jQuerybg_overflow += 'overflow: ' + jQuerythis.data('bg_overflow') + ';';
             } else {
-                $bg_overflow += 'overflow: ' + bg_overflow + '; ';
+                jQuerybg_overflow += 'overflow: ' + bg_overflow + '; ';
             }
 
-            $this.attr("style", "background:linear-gradient( " + $color_overlay + ",  " + $color_overlay_2 + " )" + bg_img + "; " + $bg_position + " " + $bg_repeat + " background-attachment: inherit; " + $bg_size + " " + $bg_overflow + "");
+            jQuerythis.attr("style", "background:linear-gradient( " + jQuerycolor_overlay + ",  " + jQuerycolor_overlay_2 + " )" + bg_img + "; " + jQuerybg_position + " " + jQuerybg_repeat + " background-attachment: inherit; " + jQuerybg_size + " " + jQuerybg_overflow + "");
 
         });
 
@@ -193,24 +193,24 @@ jQuery(function ($) {
 
     // CUSTOM EMPTY HIGHT.
 
-    if ($(".custom-empty-space").length) {
+    if (jQuery(".custom-empty-space").length) {
 
-        $(".custom-empty-space").each(function () {
+        jQuery(".custom-empty-space").each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var height = "100px",
                     ext_class = "";
 
-            if ($this.is('[data-height]')) {
-                height = $this.data('height');
+            if (jQuerythis.is('[data-height]')) {
+                height = jQuerythis.data('height');
             }
 
-            if ($this.is('[data-class]')) {
-                $this.addClass($this.data('class'));
+            if (jQuerythis.is('[data-class]')) {
+                jQuerythis.addClass(jQuerythis.data('class'));
             }
 
-            $this.attr("style", 'height:' + height + ';');
+            jQuerythis.attr("style", 'height:' + height + ';');
 
         });
 
@@ -219,11 +219,11 @@ jQuery(function ($) {
 
     // BANNER.
 
-    if ($(".section-banner").length) {
+    if (jQuery(".section-banner").length) {
 
-        $(".section-banner").each(function () {
+        jQuery(".section-banner").each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var bg_img = "images/home_1_slider_1.jpg",
                     bg_color = "#000000",
@@ -231,41 +231,41 @@ jQuery(function ($) {
                     bg_color_2 = "#000000",
                     bg_opacity_2 = "0.8";
 
-            if ($this.is('[data-bg_img]')) {
-                bg_img = ', url("' + $this.data('bg_img') + '")';
+            if (jQuerythis.is('[data-bg_img]')) {
+                bg_img = ', url("' + jQuerythis.data('bg_img') + '")';
             } else {
                 bg_img = ', url("' + bg_img + '")';
             }
 
-            if ($this.is('[data-bg_color]')) {
-                bg_color = $this.data('bg_color');
+            if (jQuerythis.is('[data-bg_color]')) {
+                bg_color = jQuerythis.data('bg_color');
             }
 
-            if ($this.is('[data-bg_opacity]')) {
-                bg_opacity = $this.data('bg_opacity');
+            if (jQuerythis.is('[data-bg_opacity]')) {
+                bg_opacity = jQuerythis.data('bg_opacity');
             }
 
-            var $color_overlay = hexToRgbA(bg_color, bg_opacity);
+            var jQuerycolor_overlay = hexToRgbA(bg_color, bg_opacity);
 
-            $color_overlay_2 = $color_overlay;
+            jQuerycolor_overlay_2 = jQuerycolor_overlay;
 
-            if ($this.is('[data-gardient]') && $this.data('gardient') == true) {
+            if (jQuerythis.is('[data-gardient]') && jQuerythis.data('gardient') == true) {
 
 
-                if ($this.is('[data-bg_color_2]')) {
-                    bg_color_2 = $this.data('bg_color_2');
+                if (jQuerythis.is('[data-bg_color_2]')) {
+                    bg_color_2 = jQuerythis.data('bg_color_2');
                 }
 
-                if ($this.is('[data-bg_opacity_2]')) {
-                    bg_opacity_2 = $this.data('bg_opacity_2');
+                if (jQuerythis.is('[data-bg_opacity_2]')) {
+                    bg_opacity_2 = jQuerythis.data('bg_opacity_2');
                 }
 
-                var $color_overlay_2 = hexToRgbA(bg_color_2, bg_opacity_2);
+                var jQuerycolor_overlay_2 = hexToRgbA(bg_color_2, bg_opacity_2);
 
             }
 
 
-            $this.attr("style", "background:linear-gradient( " + $color_overlay + ",  " + $color_overlay_2 + " )" + bg_img + "; background-position: 100% top; background-repeat: repeat; background-attachment: inherit; background-size: cover; overflow:hidden;");
+            jQuerythis.attr("style", "background:linear-gradient( " + jQuerycolor_overlay + ",  " + jQuerycolor_overlay_2 + " )" + bg_img + "; background-position: 100% top; background-repeat: repeat; background-attachment: inherit; background-size: cover; overflow:hidden;");
 
         });
 
@@ -275,13 +275,13 @@ jQuery(function ($) {
 
     function slider_resize() {
 
-        if ($(window).width() > 991) {
+        if (jQuery(window).width() > 991) {
 
-            $(".slider-content").first().attr("style", "margin-top: 0px;");
+            jQuery(".slider-content").first().attr("style", "margin-top: 0px;");
 
         } else {
 
-            $(".slider-content").first().attr("style", "margin-top: 0px;");
+            jQuery(".slider-content").first().attr("style", "margin-top: 0px;");
 
         }
 
@@ -291,16 +291,16 @@ jQuery(function ($) {
     // SLIDER 1
 
     function slider_resize() {
-        if ($(window).width() > 991) {
-            $(".slider-content").first().attr("style", "margin-top: 0px;");
+        if (jQuery(window).width() > 991) {
+            jQuery(".slider-content").first().attr("style", "margin-top: 0px;");
         } else {
-            $(".slider-content").first().attr("style", "margin-top: 0px;");
+            jQuery(".slider-content").first().attr("style", "margin-top: 0px;");
         }
     }
 
     function hexToRgbA(hex, opacity) {
         var c;
-        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        if (/^#([A-Fa-f0-9]{3}){1,2}jQuery/.test(hex)) {
             c = hex.substring(1).split('');
             if (c.length === 3) {
                 c = [c[0], c[0], c[1], c[1], c[2], c[2]];
@@ -318,23 +318,23 @@ jQuery(function ($) {
         // cf animate.css documentation
         var animationEndEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         _elem.each(function () {
-            var $elem = $(this);
-            var $animationType = 'animated ' + $elem.data('animation-' + _InOut);
-            $elem.addClass($animationType).one(animationEndEvent, function () {
-                $elem.removeClass($animationType); // remove animate.css Class at the end of the animations
+            var jQueryelem = jQuery(this);
+            var jQueryanimationType = 'animated ' + jQueryelem.data('animation-' + _InOut);
+            jQueryelem.addClass(jQueryanimationType).one(animationEndEvent, function () {
+                jQueryelem.removeClass(jQueryanimationType); // remove animate.css Class at the end of the animations
             });
         });
     }
 
 
-    if ($('.slider-wrap')) {
+    if (jQuery('.slider-wrap')) {
 
-        var $this = $('.slider-wrap');
+        var jQuerythis = jQuery('.slider-wrap');
 
-        if ($this.is('[data-bg_img]')) {
+        if (jQuerythis.is('[data-bg_img]')) {
 
-            var bg_img = 'url("' + $this.data('bg_img') + '")';
-            $this.css({
+            var bg_img = 'url("' + jQuerythis.data('bg_img') + '")';
+            jQuerythis.css({
                 'background-image': bg_img,
                 'background-repeat': 'repeat',
                 'background-position': 'center center',
@@ -345,46 +345,46 @@ jQuery(function ($) {
 
     }
 
-    if ($("#slider_1").length) {
+    if (jQuery("#slider_1").length) {
 
         // BG & Color Settings.
-        $("#slider_1").find('.slider_item_container').each(function () {
-            var $this = $(this);
+        jQuery("#slider_1").find('.slider_item_container').each(function () {
+            var jQuerythis = jQuery(this);
             var bg_img = "",
                     bg_color = "#000000",
                     bg_opacity = "0.1";
-            if ($this.is('[data-bg_img]')) {
-                bg_img = ', url("' + $this.data('bg_img') + '")';
+            if (jQuerythis.is('[data-bg_img]')) {
+                bg_img = ', url("' + jQuerythis.data('bg_img') + '")';
             }
-            if ($this.is('[data-bg_color]')) {
-                bg_color = $this.data('bg_color');
+            if (jQuerythis.is('[data-bg_color]')) {
+                bg_color = jQuerythis.data('bg_color');
             }
-            if ($this.is('[data-bg_opacity]')) {
-                bg_opacity = $this.data('bg_opacity');
+            if (jQuerythis.is('[data-bg_opacity]')) {
+                bg_opacity = jQuerythis.data('bg_opacity');
             }
-            var $color_overlay = hexToRgbA(bg_color, bg_opacity);
+            var jQuerycolor_overlay = hexToRgbA(bg_color, bg_opacity);
 
-            $this.find('.item').before('<div class="slide-bg"></div>');
+            jQuerythis.find('.item').before('<div class="slide-bg"></div>');
 
-            $this.find('.slide-bg').attr("style", "background:linear-gradient( " + $color_overlay + ",  " + $color_overlay + " )" + bg_img + "; background-position: center center; background-repeat: no-repeat; background-attachment: inherit; background-size: cover; overflow:hidden;");
+            jQuerythis.find('.slide-bg').attr("style", "background:linear-gradient( " + jQuerycolor_overlay + ",  " + jQuerycolor_overlay + " )" + bg_img + "; background-position: center center; background-repeat: no-repeat; background-attachment: inherit; background-size: cover; overflow:hidden;");
 
         });
 
         slider_resize();
 
-        $(window).on("resize", function () {
-            if ($(window).width() > 767) {
+        jQuery(window).on("resize", function () {
+            if (jQuery(window).width() > 767) {
                 slider_resize();
             } else {
-                $(".slider-content").removeAttr("style");
+                jQuery(".slider-content").removeAttr("style");
             }
         });
 
         // Carousel.
 
-        var $slider_1 = $("#slider_1");
+        var jQueryslider_1 = jQuery("#slider_1");
 
-        var $this = $slider_1;
+        var jQuerythis = jQueryslider_1;
 
         var items_val = 1,
                 bg_effect_val = true,
@@ -393,34 +393,34 @@ jQuery(function ($) {
                 autoplay_val = true,
                 autoplaytimeout_val = 10000;
         // Status.
-        if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
-            $this.removeClass('owl-carousel');
+        if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
+            jQuerythis.removeClass('owl-carousel');
             return '';
         }
 
         // Status.
-        if ($this.attr('data-bg_effect') && !isNaN($this.data('bg_effect'))) {
-            bg_effect_val = $this.data('bg_effect');
+        if (jQuerythis.attr('data-bg_effect') && !isNaN(jQuerythis.data('bg_effect'))) {
+            bg_effect_val = jQuerythis.data('bg_effect');
         }
         // navigation status.
-        if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
-            nav_val = $this.data('nav');
+        if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
+            nav_val = jQuerythis.data('nav');
         }
 
         // navigation status.
-        if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
-            dots_val = $this.data('dots');
+        if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
+            dots_val = jQuerythis.data('dots');
         }
         // Autoplay status.
-        if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
-            autoplay_val = $this.data('autoplay');
+        if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
+            autoplay_val = jQuerythis.data('autoplay');
         }
         // Autoplay status.
-        if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
-            autoplaytimeout_val = $this.data('autoplaytimeout');
+        if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
+            autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
         }
 
-        $slider_1.owlCarousel({
+        jQueryslider_1.owlCarousel({
             rtl: rtl_status,
             callbacks: true,
             margin: 0,
@@ -454,24 +454,24 @@ jQuery(function ($) {
 
 
 
-        var $slider_animation = $slider_1;
+        var jQueryslider_animation = jQueryslider_1;
 
 
 
         // Fired before current slide change
-        $slider_animation.on('change.owl.carousel', function (event) {
-            var $currentItem = $('.owl-item', $slider_animation).eq(event.item.index);
-            var $elemsToanim = $currentItem.find("[data-animation-out]");
-            setAnimation($elemsToanim, 'out');
+        jQueryslider_animation.on('change.owl.carousel', function (event) {
+            var jQuerycurrentItem = jQuery('.owl-item', jQueryslider_animation).eq(event.item.index);
+            var jQueryelemsToanim = jQuerycurrentItem.find("[data-animation-out]");
+            setAnimation(jQueryelemsToanim, 'out');
         });
 
 
         // Fired after current slide has been changed
 
-        $slider_animation.on('changed.owl.carousel', function (event) {
-            var $currentItem = $('.owl-item', $slider_animation).eq(event.item.index);
-            var $elemsToanim = $currentItem.find("[data-animation-in]");
-            setAnimation($elemsToanim, 'in');
+        jQueryslider_animation.on('changed.owl.carousel', function (event) {
+            var jQuerycurrentItem = jQuery('.owl-item', jQueryslider_animation).eq(event.item.index);
+            var jQueryelemsToanim = jQuerycurrentItem.find("[data-animation-in]");
+            setAnimation(jQueryelemsToanim, 'in');
 
         });
 
@@ -479,12 +479,12 @@ jQuery(function ($) {
 
         if (bg_effect_val === true) {
 
-            $slider_animation.on('translated.owl.carousel', function (e) {
-                $(".active .slide-bg").addClass("slidezoom");
+            jQueryslider_animation.on('translated.owl.carousel', function (e) {
+                jQuery(".active .slide-bg").addClass("slidezoom");
             });
 
-            $slider_animation.on('translate.owl.carousel', function (e) {
-                $(".active .slide-bg").removeClass("slidezoom");
+            jQueryslider_animation.on('translate.owl.carousel', function (e) {
+                jQuery(".active .slide-bg").removeClass("slidezoom");
             });
 
         }
@@ -495,9 +495,9 @@ jQuery(function ($) {
 
     // STICKY HEADER & MENU
 
-    if ($(".main-header").attr('data-sticky_header')) {
+    if (jQuery(".main-header").attr('data-sticky_header')) {
 
-        $('.main-header .header-wrapper').waypoint('sticky', {
+        jQuery('.main-header .header-wrapper').waypoint('sticky', {
             wrapper: '<div class="sticky-wrapper" />',
             stuckClass: 'stuck'
         });
@@ -506,10 +506,10 @@ jQuery(function ($) {
 
     // HIGHLIGHT CAROUSEL
 
-    if ($(".highlight-carousel").length) {
-        var $highlight_carousel = $('.highlight-carousel');
-        $highlight_carousel.each(function () {
-            var $this = $(this);
+    if (jQuery(".highlight-carousel").length) {
+        var jQueryhighlight_carousel = jQuery('.highlight-carousel');
+        jQueryhighlight_carousel.each(function () {
+            var jQuerythis = jQuery(this);
 
             var items_val = 3,
                     nav_val = true,
@@ -517,34 +517,34 @@ jQuery(function ($) {
                     autoplay_val = true,
                     autoplaytimeout_val = 5000;
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
             // no of items
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
-                items_val = $this.data('items');
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
+                items_val = jQuerythis.data('items');
             }
             // navigation status.
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
-                nav_val = $this.data('nav');
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
+                nav_val = jQuerythis.data('nav');
             }
 
             // navigation status.
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
-                dots_val = $this.data('dots');
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
+                dots_val = jQuerythis.data('dots');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
-                autoplay_val = $this.data('autoplay');
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
+                autoplay_val = jQuerythis.data('autoplay');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -573,10 +573,10 @@ jQuery(function ($) {
 
     // EVENT CAROUSEL
 
-    if ($(".event-carousel").length) {
-        var $event_carousel = $('.event-carousel');
-        $event_carousel.each(function () {
-            var $this = $(this);
+    if (jQuery(".event-carousel").length) {
+        var jQueryevent_carousel = jQuery('.event-carousel');
+        jQueryevent_carousel.each(function () {
+            var jQuerythis = jQuery(this);
 
             var items_val = 2,
                     nav_val = true,
@@ -584,34 +584,34 @@ jQuery(function ($) {
                     autoplay_val = true,
                     autoplaytimeout_val = 5000;
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
             // no of items
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
-                items_val = $this.data('items');
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
+                items_val = jQuerythis.data('items');
             }
             // navigation status.
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
-                nav_val = $this.data('nav');
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
+                nav_val = jQuerythis.data('nav');
             }
 
             // navigation status.
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
-                dots_val = $this.data('dots');
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
+                dots_val = jQuerythis.data('dots');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
-                autoplay_val = $this.data('autoplay');
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
+                autoplay_val = jQuerythis.data('autoplay');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -640,21 +640,21 @@ jQuery(function ($) {
 
     // GALLERY.
 
-    if ($('.gallery-light-box').length) {
+    if (jQuery('.gallery-light-box').length) {
 
-        $('.gallery-light-box').venobox();
+        jQuery('.gallery-light-box').venobox();
 
     }
 
     // GALLERY CAROUSEL
 
-    if ($(".gallery-carousel").length) {
+    if (jQuery(".gallery-carousel").length) {
 
-        var $gallery_carousel = $('.gallery-carousel');
+        var jQuerygallery_carousel = jQuery('.gallery-carousel');
 
-        $gallery_carousel.each(function () {
+        jQuerygallery_carousel.each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var items_val = 5,
                     nav_val = false,
@@ -664,52 +664,52 @@ jQuery(function ($) {
 
 
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
 
             // no of items
 
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
 
-                items_val = $this.data('items');
+                items_val = jQuerythis.data('items');
             }
 
             // navigation status.
 
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
 
-                nav_val = $this.data('nav');
+                nav_val = jQuerythis.data('nav');
 
             }
 
             // navigation status.
 
 
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
 
-                dots_val = $this.data('dots');
+                dots_val = jQuerythis.data('dots');
 
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
 
-                autoplay_val = $this.data('autoplay');
+                autoplay_val = jQuerythis.data('autoplay');
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
 
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -740,10 +740,10 @@ jQuery(function ($) {
 
     // SERVICE CAROUSEL
 
-    if ($(".service-carousel").length) {
-        var $service_carousel = $('.service-carousel');
-        $service_carousel.each(function () {
-            var $this = $(this);
+    if (jQuery(".service-carousel").length) {
+        var jQueryservice_carousel = jQuery('.service-carousel');
+        jQueryservice_carousel.each(function () {
+            var jQuerythis = jQuery(this);
 
             var items_val = 3,
                     nav_val = true,
@@ -751,34 +751,34 @@ jQuery(function ($) {
                     autoplay_val = true,
                     autoplaytimeout_val = 5000;
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
             // no of items
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
-                items_val = $this.data('items');
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
+                items_val = jQuerythis.data('items');
             }
             // navigation status.
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
-                nav_val = $this.data('nav');
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
+                nav_val = jQuerythis.data('nav');
             }
 
             // navigation status.
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
-                dots_val = $this.data('dots');
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
+                dots_val = jQuerythis.data('dots');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
-                autoplay_val = $this.data('autoplay');
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
+                autoplay_val = jQuerythis.data('autoplay');
             }
             // Autoplay status.
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -807,22 +807,22 @@ jQuery(function ($) {
 
     // COUNTER
 
-    if ($(".counter").length) {
-        $('.counter').counterUp({
+    if (jQuery(".counter").length) {
+        jQuery('.counter').counterUp({
             delay: 10,
             time: 2000
         });
     }
 
-    //CLIENTS LOGOS 
+    //CLIENTS LOGOS
 
-    if ($(".logo-items").length) {
+    if (jQuery(".logo-items").length) {
 
-        var $logo_items = $('.logo-items');
+        var jQuerylogo_items = jQuery('.logo-items');
 
-        $logo_items.each(function () {
+        jQuerylogo_items.each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var items_val = 6,
                     nav_val = false,
@@ -832,52 +832,52 @@ jQuery(function ($) {
 
 
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
 
             // no of items
 
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
 
-                items_val = $this.data('items');
+                items_val = jQuerythis.data('items');
             }
 
             // navigation status.
 
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
 
-                nav_val = $this.data('nav');
+                nav_val = jQuerythis.data('nav');
 
             }
 
             // navigation status.
 
 
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
 
-                dots_val = $this.data('dots');
+                dots_val = jQuerythis.data('dots');
 
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
 
-                autoplay_val = $this.data('autoplay');
+                autoplay_val = jQuerythis.data('autoplay');
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
 
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -908,13 +908,13 @@ jQuery(function ($) {
 
     // TEAM CAROUSEL.
 
-    if ($(".team-carousel").length) {
+    if (jQuery(".team-carousel").length) {
 
-        var $team_carousel = $('.team-carousel');
+        var jQueryteam_carousel = jQuery('.team-carousel');
 
-        $team_carousel.each(function () {
+        jQueryteam_carousel.each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var items_val = 3,
                     nav_val = false,
@@ -924,52 +924,52 @@ jQuery(function ($) {
 
 
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
 
             // no of items
 
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
 
-                items_val = $this.data('items');
+                items_val = jQuerythis.data('items');
             }
 
             // navigation status.
 
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
 
-                nav_val = $this.data('nav');
+                nav_val = jQuerythis.data('nav');
 
             }
 
             // navigation status.
 
 
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
 
-                dots_val = $this.data('dots');
+                dots_val = jQuerythis.data('dots');
 
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
 
-                autoplay_val = $this.data('autoplay');
+                autoplay_val = jQuerythis.data('autoplay');
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
 
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -1000,13 +1000,13 @@ jQuery(function ($) {
 
     // TESTIMONIAL CAROUSEL.
 
-    if ($(".testimonial-container").length) {
+    if (jQuery(".testimonial-container").length) {
 
-        var $testimonial_container = $('.testimonial-container');
+        var jQuerytestimonial_container = jQuery('.testimonial-container');
 
-        $testimonial_container.each(function () {
+        jQuerytestimonial_container.each(function () {
 
-            var $this = $(this);
+            var jQuerythis = jQuery(this);
 
             var items_val = 2,
                     nav_val = false,
@@ -1016,52 +1016,52 @@ jQuery(function ($) {
 
 
             // Status.
-            if ($this.attr('data-carousel') && $this.data('carousel') !== 1) {
+            if (jQuerythis.attr('data-carousel') && jQuerythis.data('carousel') !== 1) {
 
-                $this.removeClass('owl-carousel');
+                jQuerythis.removeClass('owl-carousel');
                 return '';
             }
 
             // no of items
 
-            if ($this.attr('data-items') && !isNaN($this.data('items'))) {
+            if (jQuerythis.attr('data-items') && !isNaN(jQuerythis.data('items'))) {
 
-                items_val = $this.data('items');
+                items_val = jQuerythis.data('items');
             }
 
             // navigation status.
 
-            if ($this.attr('data-nav') && !isNaN($this.data('nav'))) {
+            if (jQuerythis.attr('data-nav') && !isNaN(jQuerythis.data('nav'))) {
 
-                nav_val = $this.data('nav');
+                nav_val = jQuerythis.data('nav');
 
             }
 
             // navigation status.
 
 
-            if ($this.attr('data-dots') && !isNaN($this.data('dots'))) {
+            if (jQuerythis.attr('data-dots') && !isNaN(jQuerythis.data('dots'))) {
 
-                dots_val = $this.data('dots');
+                dots_val = jQuerythis.data('dots');
 
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplay') && !isNaN($this.data('autoplay'))) {
+            if (jQuerythis.attr('data-autoplay') && !isNaN(jQuerythis.data('autoplay'))) {
 
-                autoplay_val = $this.data('autoplay');
+                autoplay_val = jQuerythis.data('autoplay');
             }
 
             // Autoplay status.
 
-            if ($this.attr('data-autoplaytimeout') && !isNaN($this.data('autoplaytimeout'))) {
+            if (jQuerythis.attr('data-autoplaytimeout') && !isNaN(jQuerythis.data('autoplaytimeout'))) {
 
-                autoplaytimeout_val = $this.data('autoplaytimeout');
+                autoplaytimeout_val = jQuerythis.data('autoplaytimeout');
             }
 
 
-            $this.owlCarousel({
+            jQuerythis.owlCarousel({
                 rtl: rtl_status,
                 items: items_val,
                 loop: true,
@@ -1093,11 +1093,11 @@ jQuery(function ($) {
 
     // GOOGLE MAP FOR CONTACT & EVENT PAGE.
 
-    if ($('#map_canvas').length) {
+    if (jQuery('#map_canvas').length) {
 
         var map;
 
-        $('#map_canvas').css({
+        jQuery('#map_canvas').css({
             'height': '400px'
         });
 
@@ -1109,7 +1109,7 @@ jQuery(function ($) {
 
     }
 
-    // CONTACT FORM 
+    // CONTACT FORM
 
     function email_checkRegexp(o, regexp) {
 
@@ -1125,83 +1125,83 @@ jQuery(function ($) {
 
     }
 
-    if ($('#contact-form').length) {
+    if (jQuery('#contact-form').length) {
 
-        var $contact_form = $("#contact-form");
+        var jQuerycontact_form = jQuery("#contact-form");
 
-        var $contact_submit_btn = $contact_form.find("button.btn-custom");
-        var $user_name = $contact_form.find("#user_name");
-        var $user_email = $contact_form.find("#user_email");
-        var $email_subject = $contact_form.find("#email_subject");
-        var $email_message = $contact_form.find("#email_message");
+        var jQuerycontact_submit_btn = jQuerycontact_form.find("button.btn-custom");
+        var jQueryuser_name = jQuerycontact_form.find("#user_name");
+        var jQueryuser_email = jQuerycontact_form.find("#user_email");
+        var jQueryemail_subject = jQuerycontact_form.find("#email_subject");
+        var jQueryemail_message = jQuerycontact_form.find("#email_message");
 
-        var emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        var emailRegex = /^[a-zA-Z0-9.!#jQuery%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*jQuery/;
 
-        var $all_fields = $([]).add($user_name).add($user_email).add($email_subject).add($email_message);
+        var jQueryall_fields = jQuery([]).add(jQueryuser_name).add(jQueryuser_email).add(jQueryemail_subject).add(jQueryemail_message);
 
 
-        $all_fields.val("");
+        jQueryall_fields.val("");
 
-        var $error_border = "border-bottom: 1px solid red;";
+        var jQueryerror_border = "border-bottom: 1px solid red;";
         var contact_form_bValid, user_name_bValid, user_email_bValid, user_email_subject_bValid, user_email_message_bValid;
 
 
-        $contact_form.find("button[type=submit]").on("click", function () {
+        jQuerycontact_form.find("button[type=submit]").on("click", function () {
 
             contact_form_bValid = true;
 
-            if ($user_name.val() === "") {
+            if (jQueryuser_name.val() === "") {
 
                 user_name_bValid = false;
-                $user_name.next("span").remove();
-                $user_name.attr("style", $error_border).after("<span class='error'>" + $user_name.attr("data-msg") + "</span>");
+                jQueryuser_name.next("span").remove();
+                jQueryuser_name.attr("style", jQueryerror_border).after("<span class='error'>" + jQueryuser_name.attr("data-msg") + "</span>");
 
             } else {
                 user_name_bValid = true;
-                $user_name.removeAttr("style").next("span").remove();
+                jQueryuser_name.removeAttr("style").next("span").remove();
 
             }
 
             contact_form_bValid = contact_form_bValid && user_name_bValid;
 
 
-            if ($user_email.val() === "" || email_checkRegexp($user_email, emailRegex) == false) {
+            if (jQueryuser_email.val() === "" || email_checkRegexp(jQueryuser_email, emailRegex) == false) {
 
                 user_email_bValid = false;
-                $user_email.next("span").remove();
-                $user_email.attr("style", $error_border).after("<span class='error'>" + $user_email.attr("data-msg") + "</span>");
+                jQueryuser_email.next("span").remove();
+                jQueryuser_email.attr("style", jQueryerror_border).after("<span class='error'>" + jQueryuser_email.attr("data-msg") + "</span>");
 
             } else {
                 user_email_bValid = true;
-                $user_email.removeAttr("style").next("span").remove();
+                jQueryuser_email.removeAttr("style").next("span").remove();
 
             }
 
             contact_form_bValid = contact_form_bValid && user_email_bValid;
 
 
-            if ($email_subject.val() === "") {
+            if (jQueryemail_subject.val() === "") {
 
                 user_email_subject_bValid = false;
-                $email_subject.next("span").remove();
-                $email_subject.attr("style", $error_border).after("<span class='error'>" + $email_subject.attr("data-msg") + "</span>");
+                jQueryemail_subject.next("span").remove();
+                jQueryemail_subject.attr("style", jQueryerror_border).after("<span class='error'>" + jQueryemail_subject.attr("data-msg") + "</span>");
 
             } else {
                 user_email_subject_bValid = true;
-                $email_subject.removeAttr("style").next("span").remove();
+                jQueryemail_subject.removeAttr("style").next("span").remove();
             }
 
             contact_form_bValid = contact_form_bValid && user_email_subject_bValid;
 
-            if ($email_message.val() === "") {
+            if (jQueryemail_message.val() === "") {
 
                 user_email_message_bValid = false;
-                $email_message.next("span").remove();
-                $email_message.attr("style", $error_border).after("<span class='error'>" + $email_message.attr("data-msg") + "</span>");
+                jQueryemail_message.next("span").remove();
+                jQueryemail_message.attr("style", jQueryerror_border).after("<span class='error'>" + jQueryemail_message.attr("data-msg") + "</span>");
 
             } else {
                 user_email_message_bValid = true;
-                $email_message.removeAttr("style").next("span").remove();
+                jQueryemail_message.removeAttr("style").next("span").remove();
 
             }
 
@@ -1209,35 +1209,35 @@ jQuery(function ($) {
 
             if (contact_form_bValid === true) {
 
-                $all_fields.attr("disabled", "disabled");
-                $contact_submit_btn.after("<span class='form_msg'>Please wait ....</span>").attr("disabled", "disabled");
+                jQueryall_fields.attr("disabled", "disabled");
+                jQuerycontact_submit_btn.after("<span class='form_msg'>Please wait ....</span>").attr("disabled", "disabled");
 
-                $.ajax({
+                jQuery.ajax({
                     url: "contact_email.php",
                     type: 'POST',
                     dataType: 'JSON',
                     data: {
                         safety_key: 'dynatf',
-                        user_name: $user_name.val(),
-                        user_email: $user_email.val(),
-                        email_subject: $email_subject.val(),
-                        email_message: $email_message.val()
+                        user_name: jQueryuser_name.val(),
+                        user_email: jQueryuser_email.val(),
+                        email_subject: jQueryemail_subject.val(),
+                        email_message: jQueryemail_message.val()
                     },
                     success: function (data) {
 
 
                         if (data.status === 1) {
 
-                            $contact_submit_btn.next("span").remove();
-                            $contact_submit_btn.after("<span class='form_msg'>" + data.msg + "</span>");
+                            jQuerycontact_submit_btn.next("span").remove();
+                            jQuerycontact_submit_btn.after("<span class='form_msg'>" + data.msg + "</span>");
 
                             setTimeout(function () {
 
-                                $all_fields.removeAttr("disabled").val("");
+                                jQueryall_fields.removeAttr("disabled").val("");
 
-                                $contact_submit_btn.next("span").slideUp('slow', function () {
-                                    $(this).remove();
-                                    $contact_submit_btn.removeAttr("disabled");
+                                jQuerycontact_submit_btn.next("span").slideUp('slow', function () {
+                                    jQuery(this).remove();
+                                    jQuerycontact_submit_btn.removeAttr("disabled");
                                 });
 
                             }, 3000)
@@ -1245,7 +1245,7 @@ jQuery(function ($) {
 
                         } else {
 
-                            $all_fields.removeAttr("disabled");
+                            jQueryall_fields.removeAttr("disabled");
 
                         }
 
@@ -1268,8 +1268,8 @@ jQuery(function ($) {
 
     // VENOBOX VIDEO.
 
-    $(document).ready(function () {
-        $('.venobox').venobox();
+    jQuery(document).ready(function () {
+        jQuery('.venobox').venobox();
     });
 
 
@@ -1282,9 +1282,9 @@ jQuery(function ($) {
 
     // BACK TO TOP BUTTON.
 
-    if ($('#backTop').length === 1) {
+    if (jQuery('#backTop').length === 1) {
 
-        $('#backTop').backTop({
+        jQuery('#backTop').backTop({
             'theme': 'custom'
         });
 
@@ -1292,10 +1292,72 @@ jQuery(function ($) {
 
     // PRELOADER
 
-    $(window).on("load", function () {
+    jQuery(window).on("load", function () {
 
-        $("#preloader").fadeOut(500);
+        jQuery("#preloader").fadeOut(500);
 
     });
 
 });
+
+//  DEPENDING DROPDOWN MENU  DISTRICT/NEAREST
+
+jQuery(document).ready(function() {
+
+    jQuery('select[name="district_id"]').on('change', function() {
+        var districtID = jQuery(this).val();
+       // debugger;
+        if(districtID) {
+            jQuery.ajax({
+                url: 'findCityWithDistrictID/'+districtID,
+                type: "GET",
+                dataType: "json",
+                success:function(data) {
+//debugger;
+
+                    jQuery('select[name="nearest_id"]').empty();
+                    jQuery.each(data, function(key, value) {
+                        //debugger;
+                        jQuery('select[name="nearest_id"]').append('<option value="'+ value.id +'">'+ value.nearest_name +'</option>');
+                    });
+
+
+                }
+            });
+        }else{
+            jQuery('select[name="nearest_id"]').empty();
+        }
+    });
+});
+
+
+// WARRAMTY
+jQuery('body').on('change','input[name="gender"]',function () {
+    var n = jQuery(this).val();
+    debugger;
+
+
+    if (n=='female')
+    {
+        jQuery('.women').show();
+
+    }else {
+        jQuery('.women').hide();
+    }
+});
+
+// LAST DONATED
+jQuery('body').on('change','input[name="blood_before"]',function () {
+    var n = jQuery(this).val();
+    debugger;
+
+
+    if (n=='1')
+    {
+        jQuery('.last_donated').show();
+
+    }else {
+        jQuery('.last_donated').hide();
+    }
+});
+

@@ -62,7 +62,7 @@
 
                         <li><a href="about-us.html" title="About Us">About Us</a></li>
                         <li><a href="#" title="Donation">Donation</a></li>
-                        <li><a href="#" title="Registration">Registration</a></li>
+                        <li><a href="{{route('register')}}" title="Registration">Registration</a></li>
 
 
 

@@ -27,6 +27,12 @@ default route
 
 Route::get('/', 'Frontend\FrontendController@index')->name('index');
 
+//DONOR REGISTER ROUTE
+Route::get('/register', 'Frontend\DonorRegisterController@register')->name('register');
+Route::post('/store', 'Frontend\DonorRegisterController@store')->name('store');
+Route::get('findCityWithDistrictID/{id}','Frontend\DonorRegisterController@findCityWithDistrictID');
+
+
 
 
 
@@ -53,7 +59,7 @@ Route::group(['prefix' => 'district',  'middleware' => 'auth'], function()
 	Route::get('/view','Backend\DistrictController@view')->name('district_view');
 	Route::get('/add','Backend\DistrictController@add')->name('district_add');
 	Route::post('/store','Backend\DistrictController@store')->name('district_store');
-	Route::get('/districtStatus/{id}/{s}','Backend\DistrictController@districtStatus')->name('district_status');
+	//Route::get('/districtStatus/{id}/{s}','Backend\DistrictController@districtStatus')->name('district_status');
 	Route::get('/edit/{id}','Backend\DistrictController@edit')->name('district_edit');
 	Route::post('/update/{id}','Backend\DistrictController@update')->name('district_update');
 	Route::get('/delete/{id}','Backend\DistrictController@delete')->name('district_delete');
@@ -67,7 +73,7 @@ Route::group(['prefix' => 'nearest',  'middleware' => 'auth'], function()
 	Route::get('/view','Backend\Nearest_NameController@view')->name('nearest_view');
 	Route::get('/add','Backend\Nearest_NameController@add')->name('nearest_add');
 	Route::post('/store','Backend\Nearest_NameController@store')->name('nearest_store');
-	Route::get('/nearestStatus/{id}/{s}','Backend\Nearest_NameController@nearestStatus')->name('nearest_status');
+	//Route::get('/nearestStatus/{id}/{s}','Backend\Nearest_NameController@nearestStatus')->name('nearest_status');
 	Route::get('/edit/{id}','Backend\Nearest_NameController@edit')->name('nearest_edit');
 	Route::post('/update/{id}','Backend\Nearest_NameController@update')->name('nearest_update');
 	Route::get('/delete/{id}','Backend\Nearest_NameController@delete')->name('nearest_delete');
@@ -82,10 +88,43 @@ Route::group(['prefix' => 'blood-group',  'middleware' => 'auth'], function()
 	Route::get('/view','Backend\blood_groupController@view')->name('blood_group_view');
 	Route::get('/add','Backend\blood_groupController@add')->name('blood_group_add');
 	Route::post('/store','Backend\blood_groupController@store')->name('blood_group_store');
-	Route::get('/blood_groupStatus/{id}/{s}','Backend\blood_groupController@blood_groupStatus')->name('blood_group_status');
+	//Route::get('/blood_groupStatus/{id}/{s}','Backend\blood_groupController@blood_groupStatus')->name
+	//('blood_group_status');
 	Route::get('/edit/{id}','Backend\blood_groupController@edit')->name('blood_group_edit');
 	Route::post('/update/{id}','Backend\blood_groupController@update')->name('blood_group_update');
 	Route::get('/delete/{id}','Backend\blood_groupController@delete')->name('blood_group_delete');
+
+});
+
+
+
+// DISEASES ROUTE
+
+Route::group(['prefix' => 'diseases',  'middleware' => 'auth'], function()
+{
+	Route::get('/view','Backend\DiseasesController@view')->name('diseases_view');
+	Route::get('/add','Backend\DiseasesController@add')->name('diseases_add');
+	Route::post('/store','Backend\DiseasesController@store')->name('diseases_store');
+	//Route::get('/diseasesStatus/{id}/{s}','Backend\DiseasesController@blood_groupStatus')->name('diseases_status');
+	Route::get('/edit/{id}','Backend\DiseasesController@edit')->name('diseases_edit');
+	Route::post('/update/{id}','Backend\DiseasesController@update')->name('diseases_update');
+	Route::get('/delete/{id}','Backend\DiseasesController@delete')->name('diseases_delete');
+
+});
+
+
+
+// SURGERY ROUTE
+
+Route::group(['prefix' => 'surgery',  'middleware' => 'auth'], function()
+{
+	Route::get('/view','Backend\SurgeryController@view')->name('surgery_view');
+	Route::get('/add','Backend\SurgeryController@add')->name('surgery_add');
+	Route::post('/store','Backend\SurgeryController@store')->name('surgery_store');
+	//Route::get('/diseasesStatus/{id}/{s}','Backend\SurgeryController@blood_groupStatus')->name('diseases_status');
+	Route::get('/edit/{id}','Backend\SurgeryController@edit')->name('surgery_edit');
+	Route::post('/update/{id}','Backend\SurgeryController@update')->name('surgery_update');
+	Route::get('/delete/{id}','Backend\SurgeryController@delete')->name('surgery_delete');
 
 });
 

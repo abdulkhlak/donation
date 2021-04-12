@@ -33,9 +33,6 @@ class blood_groupController extends Controller
 
 			]);
 
-			$blood_group->save();
-
-
 
 		} catch (Exception $exception) {
 			$blood_group = false;
